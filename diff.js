@@ -68,13 +68,13 @@ Diff.prototype.Backtrack = function(C, oldTokens, newTokens)
 
 Diff.prototype.Aggregate = function (B) {
     var R = new Array(),
-        current = { e: '=' };
+        current = null;
 
     for (var i = 0; i < B.length; i++) {
         var item = B[i];
         switch (item.e) {
             case '=':
-                if (item.e != current.e) {
+                if (!current || item.e != current.e) {
                     current = { e: '=', o: '', n: '' };
                     R.push(current);
                 }
@@ -82,8 +82,8 @@ Diff.prototype.Aggregate = function (B) {
                 current.n += item.v;
                 break;
             case '-':
-                if (item.e != current.e) {
-                    if (current.e == '=') {
+                if (!current || item.e != current.e) {
+                    if (!current || current.e == '=') {
                         current = { e: '-', o: '', n: '' };
                         R.push(current);
                     } else {
@@ -93,8 +93,8 @@ Diff.prototype.Aggregate = function (B) {
                 current.o += item.v;
                 break;
             case '+':
-                if (item.e != current.e) {
-                    if (current.e == '=') {
+                if (!current || item.e != current.e) {
+                    if (!current || current.e == '=') {
                         current = { e: '+', o: '', n: '' };
                         R.push(current);
                     } else {
