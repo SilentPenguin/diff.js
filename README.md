@@ -20,9 +20,9 @@ Return Result
 `diff()` will return an array which contains objects which explain the changes that have occurred between `oldString` and `newString`.
 Each object has three properties:
 
-*`e` represents how the tokens equated. `=` means the two tokens are identicle, `+` means the tokens have been added, `-` means tokens were removed, finally `~` means that tokens were both added and removed.
-*`o` is the old value for a given string.
-*`n` is the new value for that given string.
+  * `e` represents how the tokens equated. `=` means the two tokens are identicle, `+` means the tokens have been added, `-` means tokens were removed, finally `~` means that tokens were substituted.
+  * `o` is the old value for a given string.
+  * `n` is the new value for that given string.
 
 Tokens will be concatinated together if they are the same.
 This means `o` and `n` may contain more than one character, word or line, and their lengths may not match.
