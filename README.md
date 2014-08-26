@@ -24,5 +24,5 @@ Each object has three properties:
   * `o` is the old value for a given string.
   * `n` is the new value for that given string.
 
-Tokens will be concatinated together if they are the same.
+Tokens will be concatinated together if they are the same type.
 This means `o` and `n` may contain more than one character, word or line, and their lengths may not match.
