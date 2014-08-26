@@ -17,7 +17,7 @@ Tokenisers must accept a string to tokenise and return an array of equatable tok
 Return Result
 =============
 
-`diff()` will return an array which contains objects which explain the changes that have occurred between `oldString` and `newString`.
+`diff()` will return an array that contains objects which explain the changes that have occurred between `oldString` and `newString`.
 Each object has three properties:
 
   * `e` represents how the tokens equated. `=` means the two tokens are identicle, `+` means the tokens have been added, `-` means tokens were removed, finally `~` means that tokens were substituted.
