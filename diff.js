@@ -7,8 +7,7 @@
  * Please republish any changes you make.
  */
 
-var Diff = function () {
-};
+var Diff = function () { };
 
 Diff.prototype.tokens = function () { };
 Diff.prototype.diff = function (oldString, newString) {
@@ -50,19 +49,17 @@ Diff.prototype.Backtrack = function(C, oldTokens, newTokens)
         j = newTokens.length,
         B = new Array();
 
-    while (i > 0 || j > 0) {
-        if (i > 0 && j > 0 && oldTokens[i - 1] == newTokens[j - 1]) {
+    while (i > 0) {
+        if (j > 0 && oldTokens[i - 1] == newTokens[j - 1]) {
             i--;
             j--;
             B.unshift({ e: '=', v: oldTokens[i] });
-        } else if (j > 0 && C[i][j - 1] > C[i - 1][j]) {
+        } else if (j > 0 && C[i][j - 1] >= C[i - 1][j]) {
             j--;
             B.unshift({ e: '+', v: newTokens[j] });
-        } else if (i > 0) {
+        } else {
             i--;
             B.unshift({ e: '-', v: oldTokens[i] });
-        } else {
-            break;
         }
     }
 
@@ -71,7 +68,7 @@ Diff.prototype.Backtrack = function(C, oldTokens, newTokens)
 
 Diff.prototype.Aggregate = function (B) {
     var R = new Array(),
-        current = { e: '' };
+        current = { e: '=' };
 
     for (var i = 0; i < B.length; i++) {
         var item = B[i];
