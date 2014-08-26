@@ -1,7 +1,7 @@
 Diff
 ====
 
-Creates an object diff of two strings of text.
+Creates an diff of two strings in javascript.
 
 Simply call `Diff.diff(oldString, newString);` and an array of differences will be returned.
 
