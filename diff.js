@@ -109,17 +109,17 @@ Diff.prototype.Aggregate = function (B) {
 }
 
 
-var DiffChars = new Diff(false);
+var DiffChars = new Diff();
 DiffChars.tokens = function (string) {
     return string;
 };
 
-var DiffWords = new Diff(false);
+var DiffWords = new Diff();
 DiffWords.tokens = function (string) {
     return string.split(/\b/);
 };
 
-var DiffLines = new Diff(false);
+var DiffLines = new Diff();
 DiffLines.tokens = function (string) {
     return string.split(/^/);
 };
