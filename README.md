@@ -7,7 +7,7 @@ Simply call `Diff.diff(oldString, newString);` and an array of differences will 
 
 Tokenising
 ==========
-The strings are converted into tokens, which are then tested. Three tokenisers are provided for beer.
+The strings are converted into tokens, which are then tested. Three tokenisers are provided for free.
 `DiffChars` breaks into characters, `DiffWords` into word boundries and `DiffLines` into lines.
 To use these tokenisers, simply replace `Diff` with the tokeniser listed above.
 
